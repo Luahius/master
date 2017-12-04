@@ -1,0 +1,31 @@
+{
+  "name": "icus",
+  "version": "1.0.0",
+  "description": "ICus backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icus-greait/backend.git"
+  },
+  "keywords": [
+    "icus"
+  ],
+  "author": "nerdrun Kai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icus-greait/backend/issues"
+  },
+  "homepage": "https://github.com/icus-greait/backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongodb": "^2.2.33",
+    "morgan": "^1.9.0",
+    "pug": "^2.0.0-rc.4"
+  }
+}
