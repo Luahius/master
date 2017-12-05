@@ -5,7 +5,5 @@ router
   .get('/', (req, res) => {
      res.render('index');
   })
-  .post('/signup', users.signup)
-  .post('/signin', users.signin)
 
 module.exports = router;
