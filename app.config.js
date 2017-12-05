@@ -7,6 +7,7 @@ const cors = require('cors');
 app.set('port', 3000);
 app.set('view engine', 'pug');
 app.set('views', `${__dirname}/views`);
+app.use('/public', express.static(`${__dirname}/public`));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());

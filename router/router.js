@@ -5,6 +5,12 @@ router
   .get('/', (req, res) => {
      res.render('index');
   })
+  .get('/hardware', (req, res) => {
+     res.render('hardware');
+  })
+  .get('/pricing', (req, res) => {
+     res.render('pricing');
+  })
   .post('/signup', users.signup)
   .post('/signin', users.signin)
 

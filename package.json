@@ -20,12 +20,14 @@
   },
   "homepage": "https://github.com/icus-greait/backend#readme",
   "dependencies": {
+    "animate.css": "^3.5.2",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongodb": "^2.2.33",
     "morgan": "^1.9.0",
-    "pug": "^2.0.0-rc.4"
+    "pug": "^2.0.0-rc.4",
+    "wowjs": "^1.1.3"
   }
 }
