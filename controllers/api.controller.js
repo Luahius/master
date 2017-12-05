@@ -2,15 +2,16 @@ let { MongoClient } = require('mongodb');
 let assert = require('assert');
 const url = 'mongodb://icus-db:icus!icus@13.125.39.5:27017/icus';
 
-
 exports.test = ((req, res) => {
   MongoClient.connect(url)
   .then(db => {
-    console.log(db);
-    db.close();
+    db.collection('users').findOne({name:'test'})
+    .then(doc => {
+      res.json(doc);
+      db.close();
+    });
   })
   .catch(err => console.log(err));
-  res.send('API server');
 });
 
 // user
