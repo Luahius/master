@@ -1,0 +1,86 @@
+
+/* ----------------------------------- */
+/* --- CUSTOM_CATUS_CSS --- */
+/* ----------------------------------- */
+/* ---  '.item-' --- */
+/* ----------------- */
+.item-flex {
+  display: flex;
+}
+.item-all-center {
+  align-items: center;
+  justify-content: center;
+}
+.item-align-center {
+  align-items: center;
+}
+.item-justify-center {
+  justify-content: center;
+}
+
+/* --------------- */
+/* --- General --- */
+/* --------------- */
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* --------------- */
+/* --- Diff_Url--- */
+/* --------------- */
+.diff-url {
+  display: none;
+}
+
+/* ----------- */
+/* --- Nav --- */
+/* ----------- */
+.navbar-default {
+  border-radius: 0;
+}
+.main-nav.navbar {
+  margin-bottom: 0;
+  border: none;
+}
+.navbar .container-fluid {
+  background-color: #ffffff;
+}
+.navbar-header {
+  display: flex;
+  justify-content: center;
+}
+.navbar-brand {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.navbar-brand img {
+  width: 40%;
+}
+.right-nav {
+  padding-right: 5%;
+}
+.navbar .nav .active a {
+  color: #333 !important;
+  border-bottom: 3px solid #333;
+  box-shadow: none !important;
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
+.sub-nav.navbar {
+  height: 60px;
+}
+.sub-nav .container-fluid {
+  height: 60px;
+}
+.sub-nav .container-fluid .nav {
+  height: 100%;
+}
+.sub-nav .nav li a {
+  margin: 0 3rem;
+}

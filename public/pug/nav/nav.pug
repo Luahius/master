@@ -2,18 +2,79 @@
 html(lang="en")
   head
     include ../cdn/cdn-bootstrap.pug
-    style
-      include ../../css/style.css 
+    link(rel="stylesheet", href="public/css/style.css")
+    script(src="public/js/nav/nav-active.js" defer)
   body
-    nav.navbar.navbar-default
+    div#diffUrl.diff-url(data-url=`${url}`)
+    nav.navbar.navbar-default.main-nav
       div.container-fluid
         div.navbar-header
-          a.navbar-brand(href='#')  
-            img(src="public/img/logo.png", alt="")
-        ul.nav.navbar-nav
-          li.active
-            a(href="#") ABOUT NEW BELL
-          li.active
-            a(href="#") Hardware
-          li.active
-            a(href="#") Pricing 
+          a.navbar-brand(href='/')  
+            img.img-responsive(src="public/img/logo.png", alt="")
+        ul.nav.navbar-nav.left-nav
+          li.nav-list(data-url='index')
+            a(href="/") ABOUT NEW BELL
+          li.nav-list(data-url='hardware')
+            a(href="/hardware") HARDWARE
+          li.nav-list(data-url='pricing')
+            a(href="/pricing") PRICING 
+          // after login
+          if(0) 
+            li.nav-list(data-url='mypage')
+              a(href="/mypage") MY PAGE 
+        // before login
+        if(1) 
+          ul.nav.navbar-nav.navbar-right.right-nav
+            li.nav-list(data-url='login')
+              a(href='/login') 로그인 
+            li.nav-list(data-url='register')
+              a(href='/register') 회원가입
+        // after login and not Mypage
+        if(0) 
+          ul.nav.navbar-nav.navbar-right.right-nav
+            li.nav-list(data-url='registerhost')
+              a(href='registerhost') 호스트등록 
+    if((url != 'pricing') && (url != 'register'))
+      nav.navbar.navbar-default.sub-nav
+        if(url == 'index')
+          div.container-fluid.item-flex.item-justify-center
+            ul.nav.navbar-nav.item-flex.item-align-center
+              li
+                a(href="#") 서비스소개 
+              li
+                a(href="#") 호스트  
+              li
+                a(href="#") 게스트 
+              li
+                a(href="#") 다운로드 
+        if(url == 'hardware')
+          div.container-fluid.item-flex.item-justify-center
+            ul.nav.navbar-nav.item-flex.item-align-center
+              li
+                a(href="#") 패키지구입 
+              li
+                a(href="#") 웹 포스  
+              li
+                a(href="#") 비콘  
+        if(url == 'mypage')
+          div.container-fluid.item-flex.item-justify-center
+            ul.nav.navbar-nav.item-flex.item-align-center
+              li
+                a(href="#") 주문리스트 
+              li
+                a(href="#") 결제리스트   
+              li
+                a(href="#") 진동벨관리 
+              li
+                a(href="#") 출퇴근관리 
+              li
+                a(href="#") 가게관리 
+        if(url == 'login')
+          div.container-fluid
+            ul.nav.navbar-nav.navbar-right.item-flex.item-align-center   
+              li
+                a(href="#") 아이디찾기 
+              li
+                a(href="#") 비밀번호찾기   
+              li
+                a(href="#") 로그인 
