@@ -30,7 +30,7 @@ exports.login = ((req, res) => {
     if(!user) throw new Error('user doesn\'t exist');
     else {
       // check password
-      if(User.verify(pw, user.pw)) return User.getToken(user); 
+      if(User.verify(pw, user.pw)) return User.newToken(user); 
       else throw new Error('password invalid');
     }
   }
@@ -40,4 +40,12 @@ exports.login = ((req, res) => {
   .then(verify)
   .then(respond)
   .catch(onError)
+});
+exports.logout = ((req, res) => {
+  const { token } = req.body;
+  console.log(token);
+});
+exports.profileImg = ((req, res) => {
+  console.log('does it work');
+  // console.log(req.body);
 });
