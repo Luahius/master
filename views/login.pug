@@ -7,3 +7,24 @@ html(lang="en")
     title 로그인:: NEWBELL 
   body
     include ../public/pug/nav/nav.pug
+    main
+      section.item-flex.flex-all-center.login-wrap.low
+        div.col-lg-3.col-md-4.col-sm-6.col-xs-8.login-form.item-flex.flex-direction-column
+          div.item-flex.flex-all-center.brand-logo
+            img.brand-logo-img(src="public/img/logo.png", alt="NEWBELL LOGO") 
+          div.login-content
+            form(action='/login' method='post') 
+              div.form-group
+                input.form-control(type='email' name='email' placeholder='이메일을 입력하세요.')  
+              div.form-group
+                input.form-control(type='password' name='pw' placeholder='암호')
+              div.remember-login-info.item-flex.flex-align-center
+                input(type='checkbox' id='checkbox') 
+                label(for='checkbox')
+                span 로그인정보 기억하기
+              div.login-btn-wrap.item-flex.flex-align-center
+                button(type='button') ID/PW 찾기
+                button(type='submit') 로그인 
+              div.register-btn-wrap.item-flex.flex-all-center
+                a(href="/register")
+                  button(type='button') 회원가입

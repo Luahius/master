@@ -1,80 +1,88 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang='en')
   head
     include ../cdn/cdn-bootstrap.pug
-    link(rel="stylesheet", href="public/css/style.css")
-    script(src="public/js/nav/nav-active.js" defer)
+    link(rel='stylesheet', href='public/css/style.css')
+    script(src='public/js/nav/nav-active.js' defer)
+    script(src='public/js/modal/modal-on-off.js' defer)
   body
+    include ../modal/modal.pug
     div#diffUrl.diff-url(data-url=`${url}`)
     nav.navbar.navbar-default.main-nav
       div.container-fluid
         div.navbar-header
           a.navbar-brand(href='/')  
-            img.img-responsive(src="public/img/logo.png", alt="")
+            img.img-responsive(src='public/img/logo.png', alt='')
         ul.nav.navbar-nav.left-nav
           li.nav-list(data-url='index')
-            a(href="/") ABOUT NEW BELL
+            a(href='/') ABOUT NEW BELL
           li.nav-list(data-url='hardware')
-            a(href="/hardware") HARDWARE
+            a(href='/hardware') HARDWARE
           li.nav-list(data-url='pricing')
-            a(href="/pricing") PRICING 
+            a(href='/pricing') PRICING 
           // after login
-          if(0) 
+          if(token) 
             li.nav-list(data-url='mypage')
-              a(href="/mypage") MY PAGE 
+              a(href='/mypage') MY PAGE 
+          // after change host 
+          if(token) 
+            li.nav-list(data-url='host')
+              a(href='/host') HOST 
         // before login
-        if(1) 
+        if(!token) 
           ul.nav.navbar-nav.navbar-right.right-nav
             li.nav-list(data-url='login')
               a(href='/login') 로그인 
             li.nav-list(data-url='register')
               a(href='/register') 회원가입
-        // after login and not Mypage
-        if(0) 
+        // after login and not 
+        if(token && (url != 'host'))
           ul.nav.navbar-nav.navbar-right.right-nav
             li.nav-list(data-url='registerhost')
-              a(href='registerhost') 호스트등록 
-    if((url != 'pricing') && (url != 'register'))
+              a(href='javascript:modalOnOff()') 호스트등록 
+            li.nav-list(data-url='logout')
+              a(href='#') 로그아웃 
+        // after login and hostpage 
+        if(token && (url == 'host')) 
+          ul.nav.navbar-nav.navbar-right.right-nav
+            li.nav-list(data-url='host-profile')
+              a(href='#') 호스트정보수정 
+            li.nav-list(data-url='beacon')
+              a(href='#') 비콘관리 
+            li.nav-list(data-url='logout')
+              a(href='#') 로그아웃 
+    if(subnav == true)
       nav.navbar.navbar-default.sub-nav
         if(url == 'index')
-          div.container-fluid.item-flex.item-justify-center
-            ul.nav.navbar-nav.item-flex.item-align-center
+          div.container-fluid.item-flex.flex-justify-center
+            ul.nav.navbar-nav.item-flex.flex-align-center
               li
-                a(href="#") 서비스소개 
+                a(href='#') 서비스소개 
               li
-                a(href="#") 호스트  
+                a(href='#') 호스트  
               li
-                a(href="#") 게스트 
+                a(href='#') 게스트 
               li
-                a(href="#") 다운로드 
+                a(href='#') 다운로드 
         if(url == 'hardware')
-          div.container-fluid.item-flex.item-justify-center
-            ul.nav.navbar-nav.item-flex.item-align-center
+          div.container-fluid.item-flex.flex-justify-center
+            ul.nav.navbar-nav.item-flex.flex-align-center
               li
-                a(href="#") 패키지구입 
+                a(href='#') 패키지구입 
               li
-                a(href="#") 웹 포스  
+                a(href='#') 웹 포스  
               li
-                a(href="#") 비콘  
-        if(url == 'mypage')
-          div.container-fluid.item-flex.item-justify-center
-            ul.nav.navbar-nav.item-flex.item-align-center
+                a(href='#') 비콘  
+        if(token && (url == 'host'))
+          div.container-fluid.item-flex.flex-justify-center
+            ul.nav.navbar-nav.item-flex.flex-align-center
               li
-                a(href="#") 주문리스트 
+                a(href='#') 주문리스트 
               li
-                a(href="#") 결제리스트   
+                a(href='#') 결제리스트   
               li
-                a(href="#") 진동벨관리 
+                a(href='#') 진동벨관리 
               li
-                a(href="#") 출퇴근관리 
+                a(href='#') 출퇴근관리 
               li
-                a(href="#") 가게관리 
-        if(url == 'login')
-          div.container-fluid
-            ul.nav.navbar-nav.navbar-right.item-flex.item-align-center   
-              li
-                a(href="#") 아이디찾기 
-              li
-                a(href="#") 비밀번호찾기   
-              li
-                a(href="#") 로그인 
+                a(href='#') 가게관리 

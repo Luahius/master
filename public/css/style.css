@@ -7,15 +7,23 @@
 .item-flex {
   display: flex;
 }
-.item-all-center {
+
+/* ----------------- */
+/* ---  '.flex-' --- */
+/* ----------------- */
+
+.flex-all-center {
   align-items: center;
   justify-content: center;
 }
-.item-align-center {
+.flex-align-center {
   align-items: center;
 }
-.item-justify-center {
+.flex-justify-center {
   justify-content: center;
+}
+.flex-direction-column {
+  flex-direction: column;
 }
 
 /* --------------- */
@@ -27,6 +35,31 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
+
+/* ------------- */
+/* --- Modal --- */
+/* ------------- */
+.modal-wrap {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba( 0, 0, 0, .6);
+  z-index: 99;
+}
+.modal-wrap.on {
+  display: flex;
+}
+.modal-wrap.on .modal-caption {
+  padding: 5%;
+  background-color: #ffffff;
+}
+/* reg-host */
 
 /* --------------- */
 /* --- Diff_Url--- */
@@ -74,6 +107,7 @@
 }
 .sub-nav.navbar {
   height: 60px;
+  margin-bottom: 0;
 }
 .sub-nav .container-fluid {
   height: 60px;
@@ -83,4 +117,162 @@
 }
 .sub-nav .nav li a {
   margin: 0 3rem;
+}
+
+/* ------------------------ */
+/* --- Login & Register --- */
+/* ------------------------ */
+
+/* Common - login & register */
+.login-wrap, .register-wrap {
+  width: 100%;
+}
+.brand-logo {
+  width: 100%;
+  height: 30%;
+}
+.brand-logo .brand-logo-img {
+  width: 10%;
+}
+.login-form, .register-form {
+  padding: 0 4rem; 
+  box-shadow: 0 0 2px #cccccc;
+}
+.login-content, 
+.register-content {
+  width: 100%;
+}
+.login-content button, 
+.register-content button {
+  border: none;
+  padding: .5rem 0;
+} 
+.login-content button:focus, 
+.register-content button:focus {
+  outline: none;
+}
+.remember-login-info input[type='checkbox'], 
+.news-send input[type='checkbox'] {
+  margin: 0;
+  visibility: hidden;
+}
+.remember-login-info label,
+.news-send label {
+  cursor: pointer;
+  height: 16px;
+  margin: 0;
+}
+.remember-login-info input[type='checkbox'] + label:before, 
+.news-send input[type='checkbox'] + label:before {
+  float: left;
+  color: #333;
+  background-color: rgba( 255, 255, 255, 0);
+  display: inline-block;
+  content: '\00a0';
+  font: 16px/1rem san-serif;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border: 1px solid #333;
+}
+.remember-login-info input[type='checkbox']:checked + label:before, 
+.news-send input[type='checkbox']:checked + label:before {
+  color: #333;
+  content: '\2713';
+}
+.remember-login-info span, 
+.news-send span {
+  margin-left: .5rem;
+  color: #333;
+}
+
+/* Login */
+.login-wrap {
+  height: calc(100vh - 50px); 
+  background-image: url('/public/img/login-bg.jpg');
+  background-size: cover;
+}
+.login-form {
+  height: 70%;
+  background-color: rgba( 255, 255, 255, 0.8);
+}
+.login-content .remember-login-info {
+  margin-bottom: 3rem;
+}
+.login-btn-wrap, .register-btn-wrap {
+  width: 100%;
+  border: 1px solid #333;
+}
+.login-btn-wrap button {
+  width: 50%;
+  background-color: rgba( 255, 255, 255, 0);
+}
+.login-btn-wrap button:nth-child(2) {
+  color: #ffffff;
+  background-color: #333;
+  border-radius: 0;
+}
+.register-btn-wrap {
+  margin-top: 1rem; 
+}
+.register-btn-wrap button {
+  color: #333;
+  font-size: 16px;
+  background-color: rgba( 255, 255, 255, 0);
+}
+/* Register */
+.register-wrap {
+  height: calc(100vh - 50px); 
+  background-image: url('/public/img/register-bg.jpg');
+  background-size: cover;
+}
+.register-form {
+  height: 70%;
+  background-color: rgba( 255, 255, 255, 0.9);
+  padding-bottom: 3rem;
+}
+.register-content .news-send {
+  margin-bottom: 3rem;
+}
+.register-finish-btn-wrap {
+  margin-top: 1rem; 
+  background-color: #333;
+}
+.register-finish-btn-wrap button {
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #333;
+}
+
+/* ------------ */
+/* --- Main --- */
+/* ------------ */
+
+.main-wrap {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 110px);
+  margin: 0;
+}
+.main-banner-wrap {
+  height: 70%;
+  background-image: url('/public/img/main-bg.jpg');
+  background-size: cover;
+  background-position-y: 30%
+}
+.main-banner-caption {
+  width: 70%;
+  height: 60%;
+  background-color: rgba( 0, 0, 0, .6);
+}
+.main-banner-caption h2 {
+  color: #ffffff;
+  filter: brightness(110%);
+}
+.main-article-wrap {
+  width: 100%;
+  height: 30%;
+}
+.main-article-content {
+  width: 90%;
 }
