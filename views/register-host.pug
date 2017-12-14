@@ -1,0 +1,19 @@
+div.item-flex.flex-all-center.brand-logo
+  img.brand-logo-img(src="public/img/logo.png", alt="NEWBELL LOGO") 
+div.register-content
+  form(action='/register-host' method='post') 
+    div.form-group
+      input.form-control(type='text' name='company' placeholder='업체명')  
+    div.form-group
+      input.form-control(type='email' name='email' placeholder='사업자등록번호(-를 빼고 기입하세요)')  
+    div.form-group
+      input.form-control(type='text' name='ceo' placeholder='대표자명')  
+    div.form-group
+      input.form-control(type='phone' name='tel' placeholder='회사번호(-를 빼고 기입하세요)')
+    div.news-send.item-flex.flex-align-center
+      input(type='checkbox' id='checkbox') 
+      label(for='checkbox')
+      span 뉴벨의 호스트 소식을 받습니다. 
+    div.register-finish-btn-wrap.item-flex.flex-all-center
+      a(href="/host")
+        button(type='submit') 호스트등록완료 
