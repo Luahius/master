@@ -4,11 +4,11 @@ module.exports = ((req, res, next) => {
   const options = {
     hostname: '52.79.163.239',
     port: 80,
-    path: `/api/auth/${req.originalUrl}`,
+    path: `/api/auth${req.originalUrl}`,
     method: 'POST',
     headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json'
+      'content-type': 'application/json',
+      'accept': 'application/json'
     }
   }
   const apiReq = http.request(options, (response) => {
