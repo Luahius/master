@@ -81,13 +81,14 @@ exports.parseImage = req => {
   });
 }
 // 이전 이미지를 S3에서 삭제합니다
-exports.deleteImgFromS3 = (key, file) => {
-  const keyPath = key.substring(key.lastIndexOf('/') + 1, key.length);
+exports.deleteImgFromS3 = (key) => {
   return new Promise((resolve, reject) => {
+    if(!key) resolve(); // 만약 새 유저면 그냥 다음으로 진행합니다
+    const keyPath = key.substring(key.lastIndexOf('/') + 1, key.length);
     const s3 = new AWS.S3();
     s3.deleteObject({ Bucket: BUCKET, Key: `${BUCKET_PATH}/${keyPath}` }, (err, data) => {
       if(err) reject(err);
-      resolve(file);
+      resolve();
     });
   });
 }
