@@ -1,7 +1,8 @@
 let modal = document.getElementById('modal');
+let modalClose = document.getElementById('modalClose');
 let modalOnOff = () => {
   modal.classList.add('on');
-  modal.addEventListener('click', () => {
+  modalClose.addEventListener('click', () => {
     modal.classList.remove('on');
   })
 }

@@ -38,6 +38,19 @@
 html, body {
   height: 100%;
 }
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------ */
+/* --- validation --- */
+/* ------------------ */
+.danger {
+  border-color: #FF4848 !important;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,72,72,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,72,72,.6) !important;
+}
 
 /* ------------- */
 /* --- Modal --- */
@@ -49,15 +62,21 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba( 0, 0, 0, .6);
   z-index: 99;
 }
 .modal-wrap.on {
   display: flex;
 }
+.modal-wrap.on .modal-cover {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba( 0, 0, 0, .6);
+}
 .modal-wrap.on .modal-caption {
   padding: 5%;
   background-color: #ffffff;
+  z-index: 999;
 }
 /* reg-host */
 
@@ -245,20 +264,22 @@ html, body {
 }
 
 /* ------------ */
-/* --- Main --- */
+/* --- Main Page--- */
 /* ------------ */
-
+.main {
+  white-space: nowrap;
+  overflow-x: auto;
+}
 .main-wrap {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  min-width: 100%;
+  max-width: 100%;
   height: calc(100vh - 110px);
   margin: 0;
 }
 .main-banner-wrap {
   height: 70%;
-  background-image: url('/public/img/main-bg.jpg');
   background-size: cover;
-  background-position-y: 30%
 }
 .main-banner-caption {
   width: 70%;
@@ -275,4 +296,21 @@ html, body {
 }
 .main-article-content {
   width: 90%;
+}
+/* main - background */
+.service-bg {
+  background-image: url('/public/img/main-service-bg.jpg');
+  background-position-y: 30%
+}
+.host-bg {
+  background-image: url('/public/img/main-host-bg.jpg');
+  background-position-y: 30%
+}
+.guest-bg {
+  background-image: url('/public/img/main-guest-bg.jpg');
+  background-position-y: 40%
+}
+.download-bg {
+  background-image: url('/public/img/main-download-bg.jpg');
+  background-position-y: 30%
 }

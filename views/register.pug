@@ -5,9 +5,10 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title 회원가입:: NEWBELL 
+    script(src='public/js/validation.js' defer)
   body
     include ../public/pug/nav/nav.pug
-    main
+    main.register
       section.item-flex.flex-all-center.register-wrap.low
         div.col-lg-3.col-md-4.col-sm-6.col-xs-8.register-form.item-flex.flex-direction-column
           div.item-flex.flex-all-center.brand-logo
@@ -19,11 +20,11 @@ html(lang="en")
               div.form-group
                 input.form-control(type='email' name='email' placeholder='이메일')  
               div.form-group
-                input.form-control#password(type='password' placeholder='비밀번호(영문,숫자 포함 8글자 이상)')
+                input.form-control(type='password' placeholder='비밀번호(영문,숫자 포함 8글자 이상)' data-input-role='password' data-input-password='beforeToPassword')
               div.form-group
-                input.form-control#verifyPW(type='password' name='pw' placeholder='비밀번호확인')
+                input.form-control(type='password' name='pw' placeholder='비밀번호확인' data-input-role='password' data-input-password='afterToPassword')
               div.form-group
-                input.form-control(type='phone' name='phone' placeholder='휴대폰번호(-를 빼고 기입하세요)')
+                input.form-control(type='phone' name='phone' placeholder='휴대폰번호(-를 빼고 기입하세요)' data-input-role='phone')
               div.news-send.item-flex.flex-align-center
                 input(type='checkbox' id='checkbox') 
                 label(for='checkbox')
