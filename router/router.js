@@ -9,15 +9,15 @@ router.use('/register', dataFromAPI);
 router
   .get('/', (req, res) => {
     let sess = req.session;
-    res.render('index' , { url:'index', subnav: true , token: sess.token });
+    res.render('index' , { url:'index', subnav: true , token: sess.token, host: sess.host , change: sess.change});
   })
   .get('/hardware', (req, res) => {
     let sess = req.session;
-    res.render('hardware', { url:'hardware', subnav: true , token: sess.token  });
+    res.render('hardware', { url:'hardware', subnav: true , token: sess.token, host: sess.host , change: sess.change});
   })
   .get('/pricing', (req, res) => {
     let sess = req.session;
-    res.render('pricing', { url:'pricing', subnav: false , token: sess.token });
+    res.render('pricing', { url:'pricing', subnav: false , token: sess.token, host: sess.host, change: sess.change });
   })
   .get('/login', (req, res) => {
     let sess = req.session;
@@ -29,11 +29,11 @@ router
   })
   .get('/mypage', (req, res) => {
     let sess = req.session;
-    res.render('mypage', { url:'mypage', subnav: false , token: sess.token });
+    res.render('mypage', { url:'mypage', subnav: false , token: sess.token , host: sess.host , change: sess.change});
   })
   .get('/host', (req, res) => {
     let sess = req.session;
-    res.render('host', { url:'host', subnav: true , token: sess.token });
+    res.render('host', { url:'host', subnav: true , token: sess.token , host: sess.host , change: sess.change});
   })
   .post('/login' , (req, res) => {
     let chunk = req.body.chunk;
@@ -48,6 +48,16 @@ router
   })
   .post('/register' , (req, res) => {
     res.redirect('/login');
+  })
+  .post('/register-host' , (req, res) => {
+    let sess = req.session;
+    sess.host = 1;
+    res.redirect('/');
+  })
+  .get('/host-change', (req, res) => {
+    let sess = req.session;
+    sess.change = 1;
+    res.redirect('/');
   })
 
 module.exports = router;

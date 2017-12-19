@@ -25,7 +25,7 @@ html(lang='en')
             li.nav-list(data-url='mypage')
               a(href='/mypage') MY PAGE 
           // after change host 
-          if(token) 
+          if(token && change == 1) 
             li.nav-list(data-url='host')
               a(href='/host') HOST 
         // before login
@@ -38,19 +38,26 @@ html(lang='en')
         // after login and not 
         if(token && (url != 'host'))
           ul.nav.navbar-nav.navbar-right.right-nav
-            li.nav-list(data-url='registerhost')
-              a(href='javascript:modalOnOff()') 호스트등록 
+            if(!host)
+              li.nav-list(data-url='registerhost')
+                a(href='javascript:modalOnOff()') 호스트등록 
+            if(host == 1 && (change != 1))
+              li.nav-list(data-url='changehost')
+                a(href='/host-change') 호스트전환  
+            if(host == 1 && (change == 1))
+              li.nav-list(data-url='changehost')
+                a(href='/host-change') 게스트전환  
             li.nav-list(data-url='logout')
-              a(href='#') 로그아웃 
+              a(href='/api/auth/logout') 로그아웃 
         // after login and hostpage 
-        if(token && (url == 'host')) 
+        if(token && url == 'host') 
           ul.nav.navbar-nav.navbar-right.right-nav
             li.nav-list(data-url='host-profile')
               a(href='#') 호스트정보수정 
             li.nav-list(data-url='beacon')
               a(href='#') 비콘관리 
             li.nav-list(data-url='logout')
-              a(href='#') 로그아웃 
+              a(href='/api/auth/logout') 로그아웃 
     if(subnav == true)
       nav.navbar.navbar-default.sub-nav
         if(url == 'index')

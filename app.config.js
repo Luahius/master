@@ -12,7 +12,7 @@ app.set('views', `${__dirname}/views`);
 app.use('/public', express.static(`${__dirname}/public`));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(cors());
 app.use(session({
   secret: sessionSecret,
